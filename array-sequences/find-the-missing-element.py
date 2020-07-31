@@ -13,7 +13,7 @@ def finder(arr1, arr2):
             return number
 
 # Solution
-
+# Runtime O(NlogN)
 def finder(arr1,arr2):
     # Sort the arrays
     arr1.sort()
@@ -26,3 +26,25 @@ def finder(arr1,arr2):
     
     # Otherwise return last element
     return arr1[-1]
+
+# Solution
+# Runtime O(N), linear
+
+import collections
+
+def finder2(arr1, arr2): 
+    
+    # Using default dict to avoid key errors
+    d=collections.defaultdict(int) 
+    
+    # Add a count for every instance in Array 1
+    for num in arr2:
+        d[num]+=1 
+    
+    # Check if num not in dictionary
+    for num in arr1: 
+        if d[num]==0: 
+            return num 
+        
+        # Otherwise, subtract a count
+        else: d[num]-=1 
